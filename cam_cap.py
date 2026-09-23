@@ -1,11 +1,12 @@
 import cv2
 import numpy as np
 from tensorflow.keras.models import load_model
+import os
 import requests
 import time
 
-USERNAME = "Admin"
-PASSWORD = "Pass@321"
+USERNAME = os.environ.get("LIGHTING_API_USER", "")
+PASSWORD = os.environ.get("LIGHTING_API_PASS", "")
 INTERVAL = 0.1  # Interval specified in minutes
 
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
